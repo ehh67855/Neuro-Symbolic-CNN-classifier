@@ -1,0 +1,5 @@
+noise_sigma,exhaustive_accuracy,max_finite_accuracy,plateau_width_matching_exhaustive,first_width_at_max_finite_accuracy,first_width_within_0_001_of_exhaustive
+0.0,1.0,1.0,5,5,5
+0.2,1.0,1.0,10,10,5
+0.4,0.938,0.938,50,50,50
+0.6,0.4198,0.4198,110,110,110

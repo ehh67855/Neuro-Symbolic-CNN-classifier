@@ -1,0 +1,310 @@
+{
+  "seed": 0,
+  "num_expressions": 5000,
+  "gaussian_sigmas": [
+    0.0,
+    0.2,
+    0.4,
+    0.6
+  ],
+  "corruption_probs": [
+    0.0,
+    0.1,
+    0.2,
+    0.3
+  ],
+  "search_space": {
+    "unconstrained_class_assignments": 371293,
+    "syntax_only_assignments": 2000,
+    "full_valid_assignments": 110
+  },
+  "symbol_test_accuracy": 0.9893203883495145,
+  "trainable_parameters": 422029,
+  "results": {
+    "clean": {
+      "baseline": {
+        "symbol_accuracy": 0.99444,
+        "expression_accuracy": 0.9724
+      },
+      "repair": {
+        "symbol_accuracy": 0.99992,
+        "expression_accuracy": 0.9998
+      },
+      "syntax_only": {
+        "symbol_accuracy": 0.99444,
+        "expression_accuracy": 0.9724
+      },
+      "neuro_symbolic": {
+        "symbol_accuracy": 1.0,
+        "expression_accuracy": 1.0
+      }
+    },
+    "gaussian": {
+      "0.0": {
+        "baseline": {
+          "symbol_accuracy": 0.99444,
+          "expression_accuracy": 0.9724
+        },
+        "repair": {
+          "symbol_accuracy": 0.99992,
+          "expression_accuracy": 0.9998
+        },
+        "syntax_only": {
+          "symbol_accuracy": 0.99444,
+          "expression_accuracy": 0.9724
+        },
+        "neuro_symbolic": {
+          "symbol_accuracy": 1.0,
+          "expression_accuracy": 1.0
+        }
+      },
+      "0.2": {
+        "baseline": {
+          "symbol_accuracy": 0.99184,
+          "expression_accuracy": 0.9596
+        },
+        "repair": {
+          "symbol_accuracy": 0.99984,
+          "expression_accuracy": 0.9996
+        },
+        "syntax_only": {
+          "symbol_accuracy": 0.99184,
+          "expression_accuracy": 0.9596
+        },
+        "neuro_symbolic": {
+          "symbol_accuracy": 1.0,
+          "expression_accuracy": 1.0
+        }
+      },
+      "0.4": {
+        "baseline": {
+          "symbol_accuracy": 0.80528,
+          "expression_accuracy": 0.3192
+        },
+        "repair": {
+          "symbol_accuracy": 0.96244,
+          "expression_accuracy": 0.9078
+        },
+        "syntax_only": {
+          "symbol_accuracy": 0.90748,
+          "expression_accuracy": 0.6106
+        },
+        "neuro_symbolic": {
+          "symbol_accuracy": 0.97648,
+          "expression_accuracy": 0.938
+        }
+      },
+      "0.6": {
+        "baseline": {
+          "symbol_accuracy": 0.28344,
+          "expression_accuracy": 0.0
+        },
+        "repair": {
+          "symbol_accuracy": 0.67004,
+          "expression_accuracy": 0.3576
+        },
+        "syntax_only": {
+          "symbol_accuracy": 0.59808,
+          "expression_accuracy": 0.0666
+        },
+        "neuro_symbolic": {
+          "symbol_accuracy": 0.70936,
+          "expression_accuracy": 0.4146
+        }
+      }
+    },
+    "corruption": {
+      "0.0": {
+        "baseline": {
+          "symbol_accuracy": 0.99444,
+          "expression_accuracy": 0.9724
+        },
+        "repair": {
+          "symbol_accuracy": 0.99992,
+          "expression_accuracy": 0.9998
+        },
+        "syntax_only": {
+          "symbol_accuracy": 0.99444,
+          "expression_accuracy": 0.9724
+        },
+        "neuro_symbolic": {
+          "symbol_accuracy": 1.0,
+          "expression_accuracy": 1.0
+        }
+      },
+      "0.1": {
+        "baseline": {
+          "symbol_accuracy": 0.894,
+          "expression_accuracy": 0.5684
+        },
+        "repair": {
+          "symbol_accuracy": 0.98816,
+          "expression_accuracy": 0.9708
+        },
+        "syntax_only": {
+          "symbol_accuracy": 0.99444,
+          "expression_accuracy": 0.9724
+        },
+        "neuro_symbolic": {
+          "symbol_accuracy": 1.0,
+          "expression_accuracy": 1.0
+        }
+      },
+      "0.2": {
+        "baseline": {
+          "symbol_accuracy": 0.79236,
+          "expression_accuracy": 0.306
+        },
+        "repair": {
+          "symbol_accuracy": 0.95844,
+          "expression_accuracy": 0.9024
+        },
+        "syntax_only": {
+          "symbol_accuracy": 0.99444,
+          "expression_accuracy": 0.9724
+        },
+        "neuro_symbolic": {
+          "symbol_accuracy": 1.0,
+          "expression_accuracy": 1.0
+        }
+      },
+      "0.3": {
+        "baseline": {
+          "symbol_accuracy": 0.69472,
+          "expression_accuracy": 0.1666
+        },
+        "repair": {
+          "symbol_accuracy": 0.91412,
+          "expression_accuracy": 0.8026
+        },
+        "syntax_only": {
+          "symbol_accuracy": 0.99444,
+          "expression_accuracy": 0.9724
+        },
+        "neuro_symbolic": {
+          "symbol_accuracy": 1.0,
+          "expression_accuracy": 1.0
+        }
+      }
+    }
+  },
+  "selected_conditions": {
+    "clean": {
+      "baseline": {
+        "symbol_accuracy": 0.99444,
+        "expression_accuracy": 0.9724
+      },
+      "repair": {
+        "symbol_accuracy": 0.99992,
+        "expression_accuracy": 0.9998
+      },
+      "syntax_only": {
+        "symbol_accuracy": 0.99444,
+        "expression_accuracy": 0.9724
+      },
+      "neuro_symbolic": {
+        "symbol_accuracy": 1.0,
+        "expression_accuracy": 1.0
+      }
+    },
+    "gaussian_0.4": {
+      "baseline": {
+        "symbol_accuracy": 0.80528,
+        "expression_accuracy": 0.3192
+      },
+      "repair": {
+        "symbol_accuracy": 0.96244,
+        "expression_accuracy": 0.9078
+      },
+      "syntax_only": {
+        "symbol_accuracy": 0.90748,
+        "expression_accuracy": 0.6106
+      },
+      "neuro_symbolic": {
+        "symbol_accuracy": 0.97648,
+        "expression_accuracy": 0.938
+      }
+    },
+    "gaussian_0.6": {
+      "baseline": {
+        "symbol_accuracy": 0.28344,
+        "expression_accuracy": 0.0
+      },
+      "repair": {
+        "symbol_accuracy": 0.67004,
+        "expression_accuracy": 0.3576
+      },
+      "syntax_only": {
+        "symbol_accuracy": 0.59808,
+        "expression_accuracy": 0.0666
+      },
+      "neuro_symbolic": {
+        "symbol_accuracy": 0.70936,
+        "expression_accuracy": 0.4146
+      }
+    },
+    "corruption_0.2": {
+      "baseline": {
+        "symbol_accuracy": 0.79236,
+        "expression_accuracy": 0.306
+      },
+      "repair": {
+        "symbol_accuracy": 0.95844,
+        "expression_accuracy": 0.9024
+      },
+      "syntax_only": {
+        "symbol_accuracy": 0.99444,
+        "expression_accuracy": 0.9724
+      },
+      "neuro_symbolic": {
+        "symbol_accuracy": 1.0,
+        "expression_accuracy": 1.0
+      }
+    }
+  },
+  "error_analysis": {
+    "gaussian_0.4": {
+      "top_k": 3,
+      "num_failures": 310,
+      "average_max_confidence_on_failures": 0.6976153254508972,
+      "average_score_margin_on_failures": 1.3150335550308228,
+      "percent_of_failures": {
+        "neural_failure": 0.34516129032258064,
+        "symbolic_ambiguity": 0.5935483870967742,
+        "extreme_noise_collapse": 0.06129032258064516
+      },
+      "counts": {
+        "neural_failure": 107,
+        "symbolic_ambiguity": 184,
+        "extreme_noise_collapse": 19
+      },
+      "true_equation_in_topk_rate_on_failures": 0.6548387096774193
+    },
+    "gaussian_0.6": {
+      "top_k": 3,
+      "num_failures": 2927,
+      "average_max_confidence_on_failures": 0.6707720160484314,
+      "average_score_margin_on_failures": 3.8914363384246826,
+      "percent_of_failures": {
+        "neural_failure": 0.9993167065254527,
+        "symbolic_ambiguity": 0.0,
+        "extreme_noise_collapse": 0.0006832934745473181
+      },
+      "counts": {
+        "neural_failure": 2925,
+        "symbolic_ambiguity": 0,
+        "extreme_noise_collapse": 2
+      },
+      "true_equation_in_topk_rate_on_failures": 0.0006832934745473181
+    }
+  },
+  "summary": {
+    "clean_expression_gain": 0.027599999999999958,
+    "clean_repair_gain": 0.02739999999999998,
+    "clean_syntax_only_gain": 0.0,
+    "average_gaussian_expression_gain": 0.27535,
+    "average_corruption_expression_gain": 0.49665000000000004,
+    "average_overall_expression_gain": 0.386,
+    "average_nontrivial_expression_gain": 0.5054666666666666
+  }
+}
