@@ -12,15 +12,15 @@ import torch
 import torch.nn as nn
 
 from beam_decoder import BeamSearchDecoder
-from project_paths import PROJECT_ROOT
+from project_paths import FIGURES_DIR, PROJECT_ROOT, RESULTS_DIR
 
 
 SEED = 0
 MODEL_PATH = PROJECT_ROOT / "symbol_classifier.pth"
 DATASET_PATH = PROJECT_ROOT / "synthetic_expressions.npz"
-JSON_RESULTS_PATH = PROJECT_ROOT / "beam_exhaustive_noise_results.json"
-CSV_RESULTS_PATH = PROJECT_ROOT / "beam_exhaustive_noise_results.csv"
-PLOT_PATH = PROJECT_ROOT / "beam_width_accuracy.png"
+JSON_RESULTS_PATH = RESULTS_DIR / "beam_exhaustive_noise_results.json"
+CSV_RESULTS_PATH = RESULTS_DIR / "beam_exhaustive_noise_results.csv"
+PLOT_PATH = FIGURES_DIR / "beam_width_accuracy.png"
 GAUSSIAN_SIGMAS = [0.0, 0.2, 0.4, 0.6]
 BEAM_WIDTHS = [1, 3, 5, 10, 20, 50, 110]
 TRACE_SAMPLE_SIZE = 3

@@ -45,7 +45,7 @@
 \maketitle
 
 \begin{abstract}
-This paper evaluates beam search as a decoder for equation recognition that combines neural probabilities with symbolic constraints. A convolutional neural network supplies probabilities for each symbol, and a separate decoder then selects a complete expression whose symbols have high CNN probabilities and whose arithmetic is valid. This requires joint inference over all five symbol positions rather than isolated greedy classification. The benchmark consists of single-digit equations of the form $d_1 \text{ } op \text{ } d_2 = d_3$. The domain is kept deliberately small so that exhaustive decoding remains tractable. Exhaustive decoding scores every valid equation and serves as an exact reference for measuring approximate methods. Since exhaustive decoding does not scale well to larger symbolic domains, this investigation asks how much accuracy is lost if beam search is used as an alternative. To test robustness across different levels of perceptual difficulty, Gaussian noise is applied to the input images at increasing intensities. This degrades CNN confidence and forces the decoder to choose among competing valid equations. On a held-out set of 5{,}000 fixed-seed equations, wider beams progressively approach the exhaustive reference. Under noise $\sigma=0.4$, a beam width of $K=10$ reaches 92.38\% equation accuracy and retains the correct equation in the final beam for 96.18\% of examples. A beam width of $K=50$ reaches 93.80\% and matches exhaustive decoding. Beam search is effective when the correct equation is not pruned too early. Under heavy noise, however, the CNN may assign a higher probability to a different equation that is also arithmetically valid.
+This paper evaluates beam search as a decoder for equation recognition that combines neural probabilities with symbolic constraints. A convolutional neural network supplies probabilities for each symbol, and a separate decoder then selects a complete expression whose symbols have high CNN probabilities and whose arithmetic is valid. This requires joint inference over all five symbol positions rather than isolated greedy classification. The benchmark consists of single-digit equations of the form $d_1 \text{ } op \text{ } d_2 = d_3$. The domain is kept deliberately small so that exhaustive decoding remains tractable. Exhaustive decoding scores every valid equation and serves as an exact reference for measuring approximate methods. Since exhaustive decoding does not scale well to larger symbolic domains, this investigation asks how much accuracy is lost if beam search is used as an alternative. To test robustness across different levels of perceptual difficulty, Gaussian noise is applied to the input images at increasing intensities. This degrades CNN confidence and forces the decoder to choose among competing valid equations. On a held-out set of 5{,}000 fixed-seed equations, wider beams progressively approach the exhaustive reference. Under noise $\sigma=0.4$, a beam width of $K=10$ reaches 92.38\% equation accuracy and retains the correct equation in the final beam for 96.18\% of examples. A beam width of $K=50$ reaches 93.80\% and matches exhaustive decoding. Beam search is effective when the correct equation is not pruned too early. Under heavy noise, however, the CNN may assign a higher probability to a different equation that is also arithmetically valid. Code and artifacts are available at https://github.com/ehh67855/\allowbreak{}Neuro-Symbolic-CNN-\allowbreak{}classifier.
 
 \end{abstract}
 
@@ -79,7 +79,7 @@ The training set consists of 60{,}000 MNIST digits and 300 rendered operator ima
 
 \begin{figure}[t]
     \centering
-    \includegraphics[width=\textwidth]{qualitative_decoding_examples.png}
+    \includegraphics[width=\textwidth]{figures/qualitative_decoding_examples.png}
     \caption{Qualitative examples drawn from the held-out equation set.}
     \label{fig:qualitative}
 \end{figure}
@@ -98,7 +98,7 @@ Figure~\ref{fig:searchspace} shows this reduction step by step. The blue bars in
 
 \begin{figure}[t]
     \centering
-    \includegraphics[width=\textwidth]{search_space_reduction.png}
+    \includegraphics[width=\textwidth]{figures/search_space_reduction.png}
     \caption{Search-space reduction during decoding. }
     \label{fig:searchspace}
 \end{figure}
@@ -156,7 +156,7 @@ Table~\ref{tab:results} reports equation accuracy across beam widths and noise l
 
 \begin{figure}[t]
     \centering
-    \includegraphics[width=0.9\textwidth]{beam_width_accuracy.png}
+    \includegraphics[width=0.9\textwidth]{figures/beam_width_accuracy.png}
     \caption{Equation accuracy as a function of beam width under Gaussian image noise.}
     \label{fig:beamwidth}
 \end{figure}
@@ -174,21 +174,21 @@ The search-error analysis examines whether the true equation appears in the fina
         \toprule
         Decoder & Candidates/expr & Score ops/expr & Time/expr (ms) & Wall-clock speedup \\
         \midrule
-        $B=1$ & 34.0 & 33.0 & 0.0318 & 2.458 \\
-        $B=3$ & 82.0 & 79.0 & 0.0543 & 1.439 \\
-        $B=5$ & 130.0 & 125.0 & 0.0783 & 0.998 \\
-        $B=10$ & 250.0 & 240.0 & 0.1404 & 0.556 \\
-        $B=20$ & 470.0 & 450.0 & 0.2524 & 0.309 \\
-        $B=50$ & 830.0 & 780.0 & 0.7150 & 0.109 \\
-        $B=110$ & 1550.0 & 1440.0 & 1.3633 & 0.057 \\
-        Exhaustive & 110.0 & 550.0 & 0.0781 & 1.000 \\
+        $B=1$ & 34.0 & 33.0 & 0.0311 & 2.309 \\
+        $B=3$ & 82.0 & 79.0 & 0.0524 & 1.370 \\
+        $B=5$ & 130.0 & 125.0 & 0.0736 & 0.976 \\
+        $B=10$ & 250.0 & 240.0 & 0.1316 & 0.545 \\
+        $B=20$ & 470.0 & 450.0 & 0.2349 & 0.306 \\
+        $B=50$ & 830.0 & 780.0 & 0.6348 & 0.113 \\
+        $B=110$ & 1550.0 & 1440.0 & 1.2427 & 0.058 \\
+        Exhaustive & 110.0 & 550.0 & 0.0718 & 1.000 \\
         \bottomrule
     \end{tabular}
 \end{table}
 
 \begin{figure}[t]
     \centering
-    \includegraphics[width=0.78\textwidth]{efficiency_tradeoff.png}
+    \includegraphics[width=0.78\textwidth]{figures/efficiency_tradeoff.png}
     \caption{Efficiency tradeoff as the beam width increases.}
     \label{fig:efficiency}
 \end{figure}
@@ -217,7 +217,7 @@ At $\sigma=0.6$, $B=110$ retains the correct equation in the final beam for 80.2
 
 \begin{figure}[t]
     \centering
-    \includegraphics[width=0.9\textwidth]{recoverability_analysis.png}
+    \includegraphics[width=0.9\textwidth]{figures/recoverability_analysis.png}
     \caption{Search-error decomposition under moderate and severe Gaussian noise.}
     \label{fig:recoverability}
 \end{figure}

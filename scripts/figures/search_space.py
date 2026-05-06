@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import sys
 from pathlib import Path
 
 import matplotlib
@@ -8,11 +9,14 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 
-from project_paths import PROJECT_ROOT
+SRC_DIR = Path(__file__).resolve().parents[2] / "src"
+if str(SRC_DIR) not in sys.path:
+    sys.path.insert(0, str(SRC_DIR))
+
+from project_paths import FIGURES_DIR
 
 
-ROOT = PROJECT_ROOT
-OUTPUT_PATH = ROOT / "search_space_reduction.png"
+OUTPUT_PATH = FIGURES_DIR / "search_space_reduction.png"
 POSITIONS = ["d1", "op", "d2", "=", "d3", "valid"]
 
 

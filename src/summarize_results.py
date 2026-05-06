@@ -4,10 +4,10 @@ import csv
 import json
 from pathlib import Path
 
-from project_paths import PROJECT_ROOT
+from project_paths import RESULTS_DIR
 
 
-ROOT = PROJECT_ROOT
+ROOT = RESULTS_DIR
 BEAM_RESULTS_CSV = ROOT / "beam_exhaustive_noise_results.csv"
 BEAM_RESULTS_JSON = ROOT / "beam_exhaustive_noise_results.json"
 EFFICIENCY_CSV = ROOT / "beam_efficiency_results.csv"

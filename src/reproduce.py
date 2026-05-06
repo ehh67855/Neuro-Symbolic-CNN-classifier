@@ -13,7 +13,7 @@ import shutil
 import subprocess
 import sys
 
-from project_paths import CODE_DIR, PROJECT_ROOT
+from project_paths import CODE_DIR, FIGURE_SCRIPTS_DIR, PROJECT_ROOT, RESULTS_DIR
 
 
 ROOT = PROJECT_ROOT
@@ -22,6 +22,10 @@ PYTHON = sys.executable
 
 def script_path(name: str) -> str:
     return str(CODE_DIR / name)
+
+
+def figure_script_path(name: str) -> str:
+    return str(FIGURE_SCRIPTS_DIR / name)
 
 
 def run_step(command: list[str], description: str) -> None:
@@ -72,7 +76,7 @@ def main() -> None:
         run_step([PYTHON, script_path("evaluation.py")], "Run Gaussian-noise beam-width sweep")
 
     run_step(
-        [PYTHON, script_path("analyze_search.py"), str(ROOT / "beam_exhaustive_noise_results.json")],
+        [PYTHON, script_path("analyze_search.py"), str(RESULTS_DIR / "beam_exhaustive_noise_results.json")],
         "Analyze pruning, oracle accuracy, and rank behavior",
     )
 
@@ -87,7 +91,7 @@ def main() -> None:
         ("recoverability.py", "Generate recoverability breakdown plot"),
     ]
     for script, description in figure_steps:
-        run_step([PYTHON, script_path(script)], description)
+        run_step([PYTHON, figure_script_path(script)], description)
 
     run_step([PYTHON, script_path("summarize_results.py")], "Generate CSV tables and results summary")
 

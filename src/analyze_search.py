@@ -9,18 +9,18 @@ from typing import Sequence
 import matplotlib.pyplot as plt
 import numpy as np
 
-from project_paths import PROJECT_ROOT
+from project_paths import FIGURES_DIR, RESULTS_DIR
 
-DEFAULT_RESULTS_PATH = PROJECT_ROOT / "beam_exhaustive_noise_results.json"
-ANALYSIS_JSON_PATH = PROJECT_ROOT / "search_behavior_analysis.json"
-PLATEAU_CSV_PATH = PROJECT_ROOT / "search_plateaus.csv"
-PRUNING_CSV_PATH = PROJECT_ROOT / "search_pruning_rates.csv"
-SURVIVAL_CSV_PATH = PROJECT_ROOT / "search_survival_rates.csv"
-FINAL_BEAM_CSV_PATH = PROJECT_ROOT / "final_beam_composition.csv"
-HYPOTHESIS_CSV_PATH = PROJECT_ROOT / "recoverability_hypothesis.csv"
-ACCURACY_HEATMAP_PATH = PROJECT_ROOT / "beam_accuracy_heatmap.png"
-ORACLE_VS_ACTUAL_PATH = PROJECT_ROOT / "oracle_vs_actual_accuracy.png"
-RANK_BOXPLOT_PATH = PROJECT_ROOT / "correct_rank_boxplot.png"
+DEFAULT_RESULTS_PATH = RESULTS_DIR / "beam_exhaustive_noise_results.json"
+ANALYSIS_JSON_PATH = RESULTS_DIR / "search_behavior_analysis.json"
+PLATEAU_CSV_PATH = RESULTS_DIR / "search_plateaus.csv"
+PRUNING_CSV_PATH = RESULTS_DIR / "search_pruning_rates.csv"
+SURVIVAL_CSV_PATH = RESULTS_DIR / "search_survival_rates.csv"
+FINAL_BEAM_CSV_PATH = RESULTS_DIR / "final_beam_composition.csv"
+HYPOTHESIS_CSV_PATH = RESULTS_DIR / "recoverability_hypothesis.csv"
+ACCURACY_HEATMAP_PATH = FIGURES_DIR / "beam_accuracy_heatmap.png"
+ORACLE_VS_ACTUAL_PATH = FIGURES_DIR / "oracle_vs_actual_accuracy.png"
+RANK_BOXPLOT_PATH = FIGURES_DIR / "correct_rank_boxplot.png"
 POSITION_KEYS = ["0", "1", "2", "3", "4", "5"]
 
 

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import csv
+import sys
 from pathlib import Path
 
 import matplotlib
@@ -9,12 +10,15 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 
-from project_paths import PROJECT_ROOT
+SRC_DIR = Path(__file__).resolve().parents[2] / "src"
+if str(SRC_DIR) not in sys.path:
+    sys.path.insert(0, str(SRC_DIR))
+
+from project_paths import FIGURES_DIR, RESULTS_DIR
 
 
-ROOT = PROJECT_ROOT
-EFFICIENCY_CSV = ROOT / "beam_efficiency_results.csv"
-OUTPUT_PATH = ROOT / "efficiency_tradeoff.png"
+EFFICIENCY_CSV = RESULTS_DIR / "beam_efficiency_results.csv"
+OUTPUT_PATH = FIGURES_DIR / "efficiency_tradeoff.png"
 FINITE_WIDTHS = [1, 3, 5, 10, 20, 50, 110]
 
 

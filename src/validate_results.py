@@ -15,7 +15,7 @@ from pathlib import Path
 
 import numpy as np
 
-from project_paths import PROJECT_ROOT
+from project_paths import FIGURES_DIR, PROJECT_ROOT, RESULTS_DIR
 
 
 ROOT = PROJECT_ROOT
@@ -24,11 +24,11 @@ EXPECTED_NUM_EXPRESSIONS = 5000
 EXPECTED_NOISE_LEVELS = [0.0, 0.2, 0.4, 0.6]
 EXPECTED_BEAM_WIDTHS = [1, 3, 5, 10, 20, 50, 110]
 PAPER_FIGURES = [
-    "qualitative_decoding_examples.png",
-    "search_space_reduction.png",
-    "beam_width_accuracy.png",
-    "efficiency_tradeoff.png",
-    "recoverability_analysis.png",
+    FIGURES_DIR / "qualitative_decoding_examples.png",
+    FIGURES_DIR / "search_space_reduction.png",
+    FIGURES_DIR / "beam_width_accuracy.png",
+    FIGURES_DIR / "efficiency_tradeoff.png",
+    FIGURES_DIR / "recoverability_analysis.png",
 ]
 MIN_FIGURE_PIXELS = 1200
 
@@ -190,14 +190,13 @@ def validate_figures() -> None:
     except Exception as exc:  # pragma: no cover - dependency issue
         fail(f"could not import PIL for figure validation: {exc}")
 
-    for figure_name in PAPER_FIGURES:
-        path = ROOT / figure_name
+    for path in PAPER_FIGURES:
         if not path.exists():
-            fail(f"missing figure: {figure_name}")
+            fail(f"missing figure: {path.relative_to(ROOT)}")
         with Image.open(path) as image:
             width, height = image.size
         if width < MIN_FIGURE_PIXELS or height < MIN_FIGURE_PIXELS:
-            fail(f"figure resolution too small: {figure_name} is {width}x{height}")
+            fail(f"figure resolution too small: {path.relative_to(ROOT)} is {width}x{height}")
 
 
 def validate_paper_text() -> None:
@@ -264,10 +263,10 @@ def parse_args() -> argparse.Namespace:
 
 def main() -> None:
     args = parse_args()
-    results_path = ROOT / "beam_exhaustive_noise_results.json"
+    results_path = RESULTS_DIR / "beam_exhaustive_noise_results.json"
     results = load_json(results_path) if results_path.exists() else None
-    table_rows = read_csv(ROOT / "beam_exhaustive_noise_results.csv")
-    recoverability_rows = read_csv(ROOT / "recoverability_table_sigma_0.4.csv")
+    table_rows = read_csv(RESULTS_DIR / "beam_exhaustive_noise_results.csv")
+    recoverability_rows = read_csv(RESULTS_DIR / "recoverability_table_sigma_0.4.csv")
 
     if results is not None:
         validate_config(results)

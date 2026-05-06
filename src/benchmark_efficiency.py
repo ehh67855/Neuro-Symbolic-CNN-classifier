@@ -18,13 +18,13 @@ from evaluation import (
     load_model,
     set_seed,
 )
-from project_paths import PROJECT_ROOT
+from project_paths import FIGURES_DIR, RESULTS_DIR
 
 
 BEAM_WIDTHS = [1, 3, 5, 10, 20, 50, 110]
-RESULTS_JSON_PATH = PROJECT_ROOT / "beam_efficiency_results.json"
-RESULTS_CSV_PATH = PROJECT_ROOT / "beam_efficiency_results.csv"
-SPEEDUP_PLOT_PATH = PROJECT_ROOT / "beam_speedup.png"
+RESULTS_JSON_PATH = RESULTS_DIR / "beam_efficiency_results.json"
+RESULTS_CSV_PATH = RESULTS_DIR / "beam_efficiency_results.csv"
+SPEEDUP_PLOT_PATH = FIGURES_DIR / "beam_speedup.png"
 NUM_EXPRESSIONS = 5000
 
 

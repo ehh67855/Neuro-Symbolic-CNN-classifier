@@ -13,9 +13,9 @@ output/
 *.fdb_latexmk
 *.fls
 *.log
+missfont.log
 *.synctex.gz
 *.tmp
 
-beam_exhaustive_noise_results.json
-beam_search_results.json
-pipeline_diagram.png
+results/beam_exhaustive_noise_results.json
+results/beam_search_results.json

@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import sys
 from pathlib import Path
 from typing import Sequence
 
@@ -9,13 +10,17 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 
+SRC_DIR = Path(__file__).resolve().parents[2] / "src"
+if str(SRC_DIR) not in sys.path:
+    sys.path.insert(0, str(SRC_DIR))
+
 from beam_decoder import BeamSearchDecoder, is_valid_equation
 from evaluation import expression_symbol_probs, load_expression_dataset, load_model
-from project_paths import PROJECT_ROOT
+from project_paths import FIGURES_DIR, PROJECT_ROOT
 
 
 ROOT = PROJECT_ROOT
-OUTPUT_PATH = ROOT / "qualitative_decoding_examples.png"
+OUTPUT_PATH = FIGURES_DIR / "qualitative_decoding_examples.png"
 SIGMA = 0.4
 SEED = 0
 BEAM_WIDTH = 10

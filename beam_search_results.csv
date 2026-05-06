@@ -1,7 +1,0 @@
-noise_sigma,beam_width,decoder,equation_accuracy,symbol_accuracy,oracle_accuracy,oracle_accuracy_pct,candidates_evaluated_per_expression,correct_in_final_beam_pct,mean_correct_rank_in_final_beam,median_correct_rank_in_final_beam,ranked_examples,missing_prediction_rate
-0.0,3,beam,0.9992,0.9992,0.9992,99.92,82.0,99.92,1.0,1.0,4996,0.0008
-0.0,5,beam,0.9996,0.9996,0.9996,99.96,130.0,99.96,1.0,1.0,4998,0.0004
-0.0,10,beam,0.9998,0.9998,0.9998,99.98,250.0,99.98,1.0,1.0,4999,0.0002
-0.0,20,beam,1.0,1.0,1.0,100.0,470.0,100.0,1.0,1.0,5000,0.0
-0.0,110,beam,1.0,1.0,1.0,100.0,1550.0,100.0,1.0,1.0,5000,0.0
-0.0,infinity,exhaustive,1.0,1.0,1.0,100.0,110.0,100.0,1.0,1.0,5000,0.0

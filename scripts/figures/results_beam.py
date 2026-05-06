@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import csv
+import sys
 from pathlib import Path
 
 import matplotlib
@@ -8,13 +9,15 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
-from project_paths import PROJECT_ROOT
+SRC_DIR = Path(__file__).resolve().parents[2] / "src"
+if str(SRC_DIR) not in sys.path:
+    sys.path.insert(0, str(SRC_DIR))
+
+from project_paths import FIGURES_DIR, RESULTS_DIR
 
 
-ROOT = PROJECT_ROOT
-RESULTS_CSV = ROOT / "beam_exhaustive_noise_results.csv"
-OUTPUT_PATH = ROOT / "results_beam.png"
-PAPER_ALIAS_PATH = ROOT / "beam_width_accuracy.png"
+RESULTS_CSV = RESULTS_DIR / "beam_exhaustive_noise_results.csv"
+OUTPUT_PATH = FIGURES_DIR / "beam_width_accuracy.png"
 FINITE_WIDTHS = [1, 3, 5, 10, 20, 50, 110]
 EXHAUSTIVE_X = 160
 
@@ -114,9 +117,7 @@ def main() -> None:
     ax.legend(title="Gaussian noise", frameon=False, loc="lower right")
     fig.tight_layout()
     fig.savefig(OUTPUT_PATH, dpi=300, bbox_inches="tight")
-    fig.savefig(PAPER_ALIAS_PATH, dpi=300, bbox_inches="tight")
     print(f"Saved {OUTPUT_PATH}")
-    print(f"Saved {PAPER_ALIAS_PATH}")
 
 
 if __name__ == "__main__":
